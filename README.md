@@ -1,4 +1,4 @@
-# Tugas Pemrograman B -
+# Tugas Pemrograman B
 Komputasi Numerik - Kelompok 24 :
 - Calvin Wirathama Katoroy (2306242395)
 - Jonathan Matius Weni Gerimu (2306161896)
