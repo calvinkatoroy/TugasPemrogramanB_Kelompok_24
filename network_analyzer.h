@@ -11,48 +11,48 @@
 #include <algorithm>
 
 struct TrafficData {
-    double timestamp;      // Unix timestamp
-    double bandwidth_mbps; // Bandwidth in Mbps
-    int packet_count;      // Number of packets in this interval
+    double timestamp;      // Cap waktu Unix
+    double bandwidth_mbps; // Bandwidth dalam Mbps
+    int packet_count;      // Jumlah paket dalam interval ini
 };
 
 class NetworkAnalyzer {
 private:
     std::vector<TrafficData> data;
-    std::vector<double> time_hours;    // Time in hours (0-24)
-    std::vector<double> bandwidth;     // Corresponding bandwidth values
+    std::vector<double> time_hours;    // Waktu dalam jam (0-24)
+    std::vector<double> bandwidth;     // Nilai bandwidth yang sesuai
     
-    // Helper functions
+    // Fungsi pembantu
     double convertToMbps(double bytes, double time_interval);
     void aggregateData(const std::vector<std::pair<double, int>>& raw_packets);
     void generateHourlyPattern();
     
 public:
-    // Constructor
+    // Konstruktor
     NetworkAnalyzer();
     
-    // Data loading and processing
+    // Pemuatan dan pemrosesan data
     bool loadRawData(const std::string& filename);
     bool loadProcessedData(const std::string& filename);
     void saveProcessedData(const std::string& filename);
     
-    // Numerical methods
+    // Metode numerik
     double lagrangeInterpolation(double target_time);
     double simpsonIntegration();
     double simpsonIntegration(double start_time, double end_time);
     
-    // Analysis functions
+    // Fungsi analisis
     void calculateStatistics();
     double getMaxBandwidth();
     double getMinBandwidth();
     double getAverageBandwidth();
     
-    // Output functions
+    // Fungsi keluaran
     void displayResults();
     void exportResults(const std::string& filename);
     void printInterpolationTable();
     
-    // Getters
+    // Getter
     size_t getDataSize() const { return data.size(); }
     const std::vector<TrafficData>& getData() const { return data; }
 };
